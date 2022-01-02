@@ -28,3 +28,39 @@ $ ./configure --with-http_stub_status_module
 <img src="img/disable1.png" />
 <img src="img/disable2.png" />
 <img src="img/disable3.png" />
+
+# Global Directives
+<img src="img/GlobalDirective1.png" />
+<img src="img/GlobalDirective2.png" />
+
+# HTTP Client Directive
+<img src="img/httpClientDirective1.png" />
+<img src="img/httpClientDirective2.png" />
+
+# HTTP file I/O directives
+<img src="img/FileioDirectives1.png" />
+<img src="img/FileioDirectives2.png" />
+
+# HTTP hash directives
+<img src="img/hashDirectives1.png" />
+<img src="img/hashDirectives2.png" />
+
+# Socket directives
+<img src="img/socketDirective1.png" />
+<img src="img/socketDirective2.png" />
+
+# Listen Parameters
+<img src="img/listen1.png" />
+<img src="img/listen2.png" />
+
+# Location Modifiers
+<img src="img/location.png" />
+
+# Location-only Directives
+<img src="img/locationDirectives.png" />
+
+# Mail module directives
+<img src="img/mailDirective.png" />
+<img src="img/mailDirectiveSsl.png" />
+<img src="img/mailDirectiveSsl2.png" />
+

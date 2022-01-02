@@ -9,11 +9,18 @@ data:
     user nginx;
     worker_processes  1;
 
+    # explicitly specifying the path to the mandatory error log
     error_log  /var/log/nginx/error.log warn;
+
+    # explicitly specifying the path to the pid file
     pid        /var/run/nginx.pid;
 
-
+    # sets up a new configuration context for the 'events' module
     events {
+      # the product of this number and the number of worker_processes
+      # indicates how many simultaneous connections per IP:port pair are
+      # accepted
+      
       worker_connections  1024;
     }
 
@@ -36,10 +43,33 @@ data:
 
       access_log  /var/log/nginx/access.log  main;
       sendfile        on;
-      #tcp_nopush     on;
+      tcp_nopush      on;
+      tcp_nodelay     on;
       keepalive_timeout  65;
       #gzip  on;
 
       include /etc/nginx/conf.d/*.conf;
-    }
+
+      server_names_hash_max_size 1024
+
+      server {
+        listen 80;
+        return 444;
+      }
+
+      server {
+        listen 80;
+
+        server_name www.example.com;
+
+        location / {
+          try_files $uri $uri/ @mongrel
+        }
+
+        location @mongrel {
+          proxy_pass http://127.0.0.1:8080
+        }
+      }
+
+    }    
     
